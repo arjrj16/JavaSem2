@@ -1,4 +1,4 @@
-public class pg126ex13 {
+public class pg126ex15 {
     public static void main(String[] args) {
 
         printDesign();
