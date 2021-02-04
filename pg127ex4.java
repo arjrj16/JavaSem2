@@ -1,5 +1,5 @@
 public class pg127ex4 {
-    public static int numStairs = 5;
+    public static int numStairs = 10;
     public static void spaceLeft(int stairs){
         for(int space = 1; space<=(5*numStairs-5)-(5*stairs-5); space++){
             System.out.print(" ");
