@@ -20,8 +20,10 @@
 
 
 */
+import java.util.Scanner;
 public class pg127ex7 {
-    public static final int size = 10;
+
+    public static int size = 8;
     public static void topEdge(){
         for(int a =1; a<=size+1; a++){System.out.print(" ");} 
         //prints spaces
@@ -44,10 +46,54 @@ public class pg127ex7 {
         System.out.print("+");
         for(int dash =1; dash <= size*3; dash++){System.out.print("-");}
         System.out.print("+");
+        for(int slash = 1; slash <=size; slash++){System.out.print("/");}
+        System.out.println();
+    }
+    public static void bottomSide(){
+        double EvenHalfDotSize = size/2+0.5;
+        int evenHalfSize = (int) EvenHalfDotSize;
+        int odd;
+        // if(size%2 == 1){space=2}
+        for(int line =1; line<=evenHalfSize; line++){
+            System.out.print("|");
+            if(size%2 == 1){
+                odd=1;
+            }
+            else{
+                odd=0;
+            }
+            for(int space =1; space<=((size*3-22)/2)+odd; space++){
+                System.out.print(" ");
+            }
+            System.out.print("Building Java Programs");
+            for(int space2=1; space2<=(size*3-22)/2; space2++){System.out.print(" ");}
+            System.out.print("|");
+            for(int slash =1; slash<=-2*line+size+2; slash++){System.out.print("/");}
+            System.out.println();
+        }
+    }
+    public static void edgeBot(){
+        System.out.print("+");
+        for(int dash =1; dash <= size*3; dash++){System.out.print("-");}
+        System.out.print("+");
+        System.out.println();
     }
     public static void main (String args[]){
+        Scanner input = new Scanner (System.in);
+        System.out.println("Please enter a sizeable number greater than 7:");
+        size = input.nextInt();
+        if(size>7){
         topEdge();
         cover();
+        edge();
+        bottomSide();
+        edgeBot();
+        }
+        else{
+            System.out.println();
+            System.out.println("Size number must be greater than 7 or \"Building Java Programs\" cannot be printed correctly.");
+            System.out.println();
+        }
     }
 
 }
