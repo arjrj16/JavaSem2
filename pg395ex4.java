@@ -13,12 +13,9 @@ public class pg395ex4 {
     public static void randomX(){
         Random randy = new Random();
         int x = randy.nextInt(15)+5;
-        int loop = 1;
         while(x<16){
-            loop=1;
-            while(loop<=x){
+            for(int c = 1; c<=x; c++){
                 System.out.print("x");
-                loop++;
             }
             System.out.println();
             x=randy.nextInt(15)+5;
@@ -89,11 +86,11 @@ public class pg395ex4 {
     }
     public static void main (String args []){
         
-        //randomX();
+        randomX();
        // makeGuesses();
        // randomWalk();
-      // gcd(24,6);
+      //gcd(24,6);
        //hopScotch(3);
-       printAverage();
+      // printAverage();
     }
 }
