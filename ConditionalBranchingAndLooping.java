@@ -108,10 +108,10 @@ public class ConditionalBranchingAndLooping {
         }
     }
     public static void main(String args[]){
-        //swapPairs("hello there");
+        swapPairs("Look at project 7 on page 300 in the textbook. You wanna do it?");
         //System.out.println(quadrant(0,0));
-        hopScotch(3);
-        printAverage();
+        //hopScotch(3);
+        //printAverage();
     }
     
 }
