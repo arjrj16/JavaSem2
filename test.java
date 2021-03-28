@@ -1,47 +1,18 @@
 import java.awt.*;
 import java.util.*;
+/*
+binarySearch(array, value) - returns value of the given value in a sorted array (or <0 if not found)
+copyOf(array,length) - returns copy of array
+equals(array1, array2) - returns TRUE if the two arrays contain same elements in same order
+fil(array, value) - sets every elemtn to the given value
+sort (array) -  arranges the elements into sorted order
+toString(array) - returns a string representing the array, such as "[10,30,-25,17]"
+*/
 public class test {
-    // public static int methodA (int column, int row){
-    //     int start = 0;
-    //     int a = 1;
-    //     while(start < row-column)
-    //     {
-    //         a *= (column+start)/(1+start);
-    //         start++;
-    //     }
-    //     return a;
-    // }
-    // public static void main (String args[]){
-    //     System.out.println("here it is ___"+methodA(3,3)+"_");
-    // }
     public static void main(String [] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What would you like the size of Pascal's Triangle to be? (after 13 printf causes it to break)");
-        int SIZE = sc.nextInt();
-        Pascal(SIZE);
+        int[] array = {1, 3, 14, 5, 7,18, 9};
+        int[] array2 = {2, 6, 39, 68, 23,29, 91};
     }
  
-    public static int GetNumber(int x) {
-        int y;
-        for(y = 1; x > 1; x--){
-            y *= x;
-        }
-        return y;
-    }
- 
-    public static void Pascal(int SIZE) {
-        SIZE -= 1;
-        int column, number, line, space;
-        System.out.println();
-        for(line = 0; line <= SIZE; line++) {
-            for(space = 0; space <= SIZE-line; space++){
-                System.out.printf("%2s","");
-            }
-            for(column = 0; column <= line; column++){
-                number = GetNumber(line) / (GetNumber(line-column) * GetNumber(column));
-                System.out.printf("%4s", number);
-            }
-            System.out.println();
-        }
-    }
+    
 }

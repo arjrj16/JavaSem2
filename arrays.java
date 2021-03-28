@@ -13,7 +13,7 @@ public class arrays {
             System.out.println(numbers[i]);
             sum = sum + numbers[i];
         }
-        d
+        
         for(int j =0; j<size; j++){
             System.out.print(numbers[j]+",");
         }

@@ -31,6 +31,20 @@ public class arrayTemperaturePractice {
     }
     //says how many days above average
     System.out.println("There were " + counter + " days above the average.");
+    //using toString prints the temperatures
+    System.out.println("Temperatures: "+Arrays.toString(htemp));
+    //creates new copy of values that we then sort (still keeping original order just incase)
+    int []sorted = new int [amt];
+    sorted = Arrays.copyOf(htemp,amt);
+    Arrays.sort(sorted);
+    //if we have more than two values, prints two largest and two smallest of the temperatures
+    if(sorted.length>=2){
+        System.out.println("Two Coldest days: "+sorted[0]+", "+sorted[1]);
+        System.out.println("Two Hottest days: "+sorted[sorted.length-1]+", "+sorted[sorted.length-2]);
+    }
+    else{
+        System.out.println("Not enough temperatures to analyze hottest and coldest data.");
+    }
     }
 
 }
