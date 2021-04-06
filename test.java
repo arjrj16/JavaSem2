@@ -9,9 +9,23 @@ sort (array) -  arranges the elements into sorted order
 toString(array) - returns a string representing the array, such as "[10,30,-25,17]"
 */
 public class test {
+    public static int ArrayIndexOf(char a[], char c){
+        int i =0;
+        while (i < a.length) {
+            if (a[i] == c) {
+                return i;
+            }
+            else {
+                i = i + 1;
+            }
+        }
+        return -1;
+    }
     public static void main(String [] args) {
         int[] array = {1, 3, 14, 5, 7,18, 9};
         int[] array2 = {2, 6, 39, 68, 23,29, 91};
+        char [] arrya = {'a','d','o','q'};
+        System.out.println(ArrayIndexOf(arrya, 'g'));
     }
  
     
