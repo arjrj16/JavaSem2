@@ -29,7 +29,8 @@ else you lost
 */
 import java.util.*;
 public class hangmanpg499ex3 {
-    public static void graphic (int lives){
+
+    public static void graphic (int lives){ //function that prints graphic depending on if you won
         switch(lives+1){
             case 6:
             head();
@@ -53,6 +54,8 @@ public class hangmanpg499ex3 {
             System.out.println("Error in graphic.");
         }
     }
+
+    //following functions literally just print the hang man
     public static void head (){
         System.out.println(" O");
     }
@@ -78,7 +81,11 @@ public class hangmanpg499ex3 {
         System.out.println("/|\\");
         System.out.println("/ \\");
     }
+
+
     public static Scanner input = new Scanner (System.in);
+
+    //finds index of character in an array.
     public static int ArrayIndexOf(char a[], char c){
         int i =0;
         while (i < a.length) {
@@ -94,68 +101,70 @@ public class hangmanpg499ex3 {
 
     public static void main(String args[]){
         //char [] guessedLetters = new char [26];
-        char guess;
-        char PrettyGuess;
-        String PrettyWord;
-        int lives = 6;
+        char guess; //character that user guesses
+        char PrettyGuess; //keeps guess in original case
+        String PrettyWord; //keeps word in orginal case
+        int lives = 6; //lives counter
         //char [] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-        int [] alphCount = new int [26];
-        Arrays.fill(alphCount, 0);
-        String alph = "abcdefghijklmnopqrstuvwxyz";
+        int [] alphCount = new int [26]; //keeps track of how many times each letter is guessed so we can make sure they don't lose lives for guessing the same letter
+        Arrays.fill(alphCount, 0); //fills it with 0's
+        String alph = "abcdefghijklmnopqrstuvwxyz"; //allows us to know which index alph count corresponds to
+        // gets input
         System.out.println("Please enter a word to be guessed for hangman: ");
         String word = input.nextLine();
-        System.out.println("\n\n\n\n\n\n\n\n\n\n");
-        PrettyWord = word;
-        word = word.toLowerCase();
-        int lettersRemaing = word.length();
-        char [] guessed = new char [word.length()];
-        Arrays.fill(guessed, '_');
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"); //moves word up so user can't see it
+        PrettyWord = word; //stores the original case of the word
+        word = word.toLowerCase(); //put in lower case for easier processing
+        int lettersRemaing = word.length(); //allows us to know when they win
+        char [] guessed = new char [word.length()]; //where we store the correctlyh guessed letters
+        Arrays.fill(guessed, '_'); //fills with place holders in this case '_'
         for(int a = 0; a<guessed.length;a++){
-            System.out.print(guessed[a]+" ");
+            System.out.print(guessed[a]+" "); //prints amount of letters of the word
         }
         System.out.println();
         //word.contains(Character.toString(guess))
-        while(lives>0 && lettersRemaing >0){
+        while(lives>0 && lettersRemaing >0){ //starts the guessing - as long as they haven't won or lost
             System.out.println("Please enter a letter to guess.");
-            guess = input.next().charAt(0);
-            PrettyGuess = guess;
-            guess = Character.toLowerCase(guess);
-            alphCount[alph.indexOf(guess)] +=1;
+            guess = input.next().charAt(0); //input
+            PrettyGuess = guess; //stores original case
+            guess = Character.toLowerCase(guess); //lowercase for easier processing
+            alphCount[alph.indexOf(guess)] +=1; //stores guess
             //System.out.println("guess: "+guess+" alphCount: "+Arrays.toString(alphCount)+"alph.indexOf " + alph.indexOf(guess));
             if(ArrayIndexOf(guessed, guess)==-1 && alphCount[alph.indexOf(guess)]<=1){ //check for earlier words being guessed
-            if(word.contains(Character.toString(guess))){
-                int counter = 0;
-                for(int a = 0; a<word.length(); a++){
-                    if(word.charAt(a)==guess){
-                        guessed[a]=guess;
-                        lettersRemaing--;
-                        counter++;
+                if(word.contains(Character.toString(guess))){  //if the word has the guess
+                    int counter = 0; 
+                    for(int a = 0; a<word.length(); a++){ //cycle through the letters of the word
+                        if(word.charAt(a)==guess){
+                            guessed[a]=guess;  //all the times the user guessed the character are placed into the guessed array
+                            lettersRemaing--; //this many letters closer to winning
+                            counter++; //tells us how many times the letter was in the word
+                        }
                     }
+                    System.out.println("Good job, "+PrettyGuess+" was in the word "+counter+" times.");
                 }
-                System.out.println("Good job, "+PrettyGuess+" was in the word "+counter+" times.");
-            }
-            else{
-                lives--;
-                System.out.println("Unfortunately, "+PrettyGuess+" was not in the word.\n"+"You have "+lives+" left.");
-                System.out.println("Hangman: \n");
-                graphic(lives);
+                else{ //otherwise, we take a way a life and tell them
+                    lives--;
+                    System.out.println("Unfortunately, "+PrettyGuess+" was not in the word.\n"+"You have "+lives+" left.");
+                    System.out.println("Hangman: \n");
+                    graphic(lives); //prints hangman with the amount of lives we have
+                    System.out.println();
+                    
+                }
+                for(int a = 0; a<guessed.length;a++){
+                    System.out.print(guessed[a]+" "); //prints what u have guessed correctly of word so far
+                }
                 System.out.println();
-                
             }
-            for(int a = 0; a<guessed.length;a++){
-                System.out.print(guessed[a]+" ");
-            }
-            System.out.println();
-        }
         else{
-             System.out.println("You have already guessed this letter. Please enter a new one.");
+             System.out.println("You have already guessed this letter. Please enter a new one."); //if letter was already guessed this is run
+             //NOTE: NO LIVES ARE TAKEN AWAY - JUST ALLOWS YOU TO RE-GUESS
         }
          }
         if(lives>0){
-            System.out.println("Congratulations, you won!");
+            System.out.println("Congratulations, you won!"); //if the while loop terminates and we get to this line and lives is greater than 0, they won.
         }
         else{
-            System.out.println("You lost. The word was " + PrettyWord);
+            System.out.println("You lost. The word was " + PrettyWord); //otherwise they lost.
         }
         
     }
