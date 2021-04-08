@@ -185,7 +185,7 @@ public class TicTacToe {
         System.out.println(" " + board[2][0] + " | " + board[2][1] + " | " + board[2][2]);
     }
     public static boolean winCheck(char board[][]){ //checks if someone won
-       // int check =0;
+        int check =0;
         for(int rc =0; rc <dimensions; rc++){
             // if((rowAppend(rc, board).contains("x") && rowAppend(rc, board).contains("o") || rowAppend(rc, board).contains(" "))&&check!=1){
             //     check = 1;
