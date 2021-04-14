@@ -10,9 +10,20 @@ toString(array) - returns a string representing the array, such as "[10,30,-25,1
 */
 public class test {
     public static void main(String [] args) {
-        int table [][] = {4, 4};
-        
-        System.out.println(Arrays.toString(table));
+        String a = "3";
+        System.out.println(stringDoubleCheck(a));
+    }
+    public static boolean stringDoubleCheck(String a){
+        try
+        {
+            Double.parseDouble(a);
+        }
+        catch(NumberFormatException e)
+        {
+            //not a double
+            return false;
+        }
+        return true;
     }
  
     
