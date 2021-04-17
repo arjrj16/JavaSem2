@@ -1,8 +1,9 @@
 import java.io.*;
 import java.util.*;
 
-public class CalculatingEmployeesHoursV2 {
+public class CalculatingEmployeesHoursSaveToFile {
     public static void main (String args []) throws FileNotFoundException{
+        PrintStream output = new PrintStream(new File ("-CalculatingEmployeesHoursSaveToFile.txt"));
         File myFile = new File ("C:\\Users\\melwania24\\OneDrive - Greenhill School\\9th\\Java\\JavaSem2\\hours.txt");
         Scanner input = new Scanner(myFile);
         Scanner line; 
@@ -38,8 +39,8 @@ public class CalculatingEmployeesHoursV2 {
             else{
                 avgHrs = -1;
             }
-            System.out.print(name+" (#"+employeeNum+") worked ");
-            System.out.printf("%.1f hours (%.2f hours/day) \n", hours,avgHrs);
+            output.print(name+" (#"+employeeNum+") worked ");
+            output.printf("%.1f hours (%.2f hours/day) \n", hours,avgHrs);
             }
             hours = 0; //reset values
             dayCount = 0;
