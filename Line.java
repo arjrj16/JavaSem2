@@ -33,32 +33,35 @@ digits past the decimal point before you compare them.
 public class Line {
     public Point pt1;
     public Point pt2;
+    //constructor
     public Line(){
-        pt1.setLocation(0, 0);
+        pt1.setLocation(0, 0); //uses point class methods
         pt2.setLocation(1, 1);
     }
-    public Line(Point p1, Point p2){
-        pt1 = p1;
+    public Line(Point p1, Point p2){ //if points are already given
+        pt1 = p1; 
         pt2 = p2;
     }
-    public Line(int x1, int y1, int x2, int y2){
+    public Line(int x1, int y1, int x2, int y2){ //sets locations of line - uses point class methods
         pt1.setLocation(x1, y1);
         pt2.setLocation(x2, y2);
     }
-    public Point getP1(){
+    //getter methods
+    public Point getP1(){ 
         return pt1;
     }
     public Point getP2(){
         return pt2;
     }
-    public String toString(){
+
+    public String toString(){ //prints using point methods
         return pt1.toString()+pt2.toString();
         //return ("[("+pt1.getX()+", "+pt1.getY()+")"+", ("+pt2.getX()+", "+pt1.getY()+")]");
     }
     //(y2 – y1) / (x2 – x1).
-    public Double getSlope(){
-        if(pt2.getX() != pt1.getX()){
-            return Double.valueOf((pt2.getY()-pt1.getY())/(pt2.getX()-pt1.getX()));
+    public Double getSlope(){ //returns slope - uses math
+        if(pt2.getX() != pt1.getX()){ //not undefined
+            return Double.valueOf((pt2.getY()-pt1.getY())/(pt2.getX()-pt1.getX())); //slope formula
         }
         else{
             return null;
@@ -66,8 +69,8 @@ public class Line {
     }
     public boolean isCollinear(Point p){
         //System.out.println(getSlope()+" "+Double.valueOf((p.getY()-pt1.getY())/(p.getX()-pt1.getX())));
-        if(p.getX()!=pt1.getX()){
-            if(Double.compare(getSlope(),Double.valueOf((p.getY()-pt1.getY())/(p.getX()-pt1.getX())))==0){
+        if(p.getX()!=pt1.getX()){ 
+            if(Double.compare(getSlope(),Double.valueOf((p.getY()-pt1.getY())/(p.getX()-pt1.getX())))==0){ //checks if colinear
                 System.out.println("hello");
                 return true;
                 
@@ -78,10 +81,10 @@ public class Line {
         }
         else{
             //if(Double.compare(getSlope(), Double.valueOf(((p.getY()+getSlope())-pt1.getY())/((p.getX()+getSlope())-pt1.getX())))==0){
-            if(p.getY() ==  pt1.getY()){  
+            if(p.getY() ==  pt1.getY()){   //easy dont even need to do math, 100% true
                 return true;
             }
-            else{
+            else{ //nope
                 return false;
             }
         }

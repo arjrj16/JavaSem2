@@ -27,7 +27,7 @@ determined by calculating the slope of the line between each pair of points and 
 same for all pairs of points. Use the formula (y2 – y1) / (x2 – x1) to determine the slope between two points (x1, y1)
 and (x2, y2). (Note that this formula fails for points with identical x-coordinates, so this will have to be a special case
 in your code.) Since Java’s double type is imprecise, round all slope values to a reasonable accuracy such as four
-digits past the decimal point before you compare them.
+digits past the decimal point before you compare them. 
 */
 public class Point {  
     private int x;  
