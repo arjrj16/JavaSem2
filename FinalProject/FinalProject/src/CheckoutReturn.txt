@@ -1,0 +1,7 @@
+Create log file of 'transactions' 
+everytime someone checkouts a book put their id info and the books isbn next to each other on file
+ie:
+783494938:Harry Potter:out:Arjun:Melwani:7245
+put at the top of file^
+or return:
+783494938:Harry Potter:in:Arjun:Melwani:7245

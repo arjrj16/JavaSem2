@@ -1,0 +1,149 @@
+Final Project:
+
+Library Management System:
+-2 users, administrator/librarian, and user/student
+Administrator can create catalog of books, fit with: id nums, authors, titles, series, ISBN
+Students can: enter their id and password to access the database, search for books, check out books, see what books they have out, and more
+
+Student Class{
+Instance Variables:
+IdNum
+IdPassword
+Student First Name
+Student Last Name
+	Student Constructor(idNum,IdPasswrod, First Name, Last Name){
+		Creates file in a folder students named [first name + “ “ +  last name] where credentials are stored
+		Stores info to instance vars.
+}
+Checkout(Book a){
+	Accesses corresponding student file and prints into it info of Book:
+Title, Author, ISBN Number, Subject,Quantity
+*IF TIME PERMITS, we can also add in a method to see how long the book has been checked out for*
+}
+ReturnBook(Book a){
+		Finds book on text file and writes that it was returned.
+}
+Info(){
+Print all of student info
+}
+	
+}
+
+Book Class{
+	Instance Variables:
+	Title
+	Author
+	ISBN Number
+	Subject
+	Quantity
+	Book Constructor(Title, Author, ISBN Number, Subject,Quantity){
+		Stores instance variables to variables
+	}
+	[Get and Set Methods for all instance variables…]
+}
+
+Text File: Ids
+Contains all the students allowed in library - ids and what not
+Such as:
+(First Name) (Last Name) (Id Number) (Password) (Role)
+Arjun Melwani #7245 3252	Admin
+Bruno	Guito #8642 9910	Student
+
+Text File: Catalog
+Contains the Library Catalog, which is created either manually or by the administrator
+Harry Potter and the Sourcerors Stone, J.K. Rowling, 9999389498293, 3
+
+Administrator Class{
+Instance Variables:
+	Admin Password = 423213
+Administrator Constructor(admin passord){
+if(password matches){
+	Allow them to continue
+}
+	}
+	AdminMakeCatalog(){
+		Asks user for how many books it wants - amtOfBook variable
+		For( i <= amt of book){
+			Ask user for Title, Author, ISBN Number, Subject, and Quantity of book and    creates this     in book object. 
+			Then writes catalog to the text file
+}
+}
+AdminCheckStudentInfo(studnetId){
+Access the student folder and the text file containing info about the student.
+Reads it and prints info such as books checked out, books returned, name, id num, etc.
+}
+AdminIds(){
+	Creates new file called Ids
+	Asks how many users will need to be made
+	For loop through each of these users
+	Ask the following credentials - (First Name) (Last Name) (Id Number) (Password) (Role)
+	Prints each to the file in the correct format
+
+}
+
+}
+Main{
+	UI: 
+Print: welcome to ___ Library Management System. To begin, please enter your userId and password.
+	(Asks for user id and user password)
+	Searches StudentIds file for User and their Role
+	If they are not found program will end,
+	Else if they are a student{
+		Gets their info from StudentId file and creates student object called (first name + first initial Last name+Student code)
+
+		Print: Hi _____, How may we assist you? You may type below the following commands: Checkout, Return, Info
+		If they input checkout{
+			Print what book would you like to check out?
+			Search catalog for book. If found, create book object for it,
+			If not found, allow them to research for a book.
+			(Student object name).checkout(book)
+		{
+		If they input return{
+		Print books they have checked out currently
+		Print: Which book would you like to return
+		Search their StudentFile for book. If found, create book object for it,
+		If not found, allow them to research for a book.
+		(Student object name).return(book)
+}
+If they input info{
+Print all info library has on the student.
+}
+	}
+	Else if they are an admin{
+		Gets their info from IDfile and creates admin object called (first name + first initial Last name+Id code)
+
+		Print: Hi _____, How may we assist you? You may type below the following commands: New Catalog, New Student Ids, Checkout, Return, Check Student Info
+Create student object for Admin - same info except role as student
+	If they say new catalog{
+		Admin.AdminCatalog()
+}
+If they say new student ids{
+	Admin.AdminStudentIds
+}
+If they say Checkout{
+	Print what book would you like to check out?
+			Search catalog for book. If found, create book object for it,
+			If not found, allow them to research for a book.
+			(Student object name).checkout(book)
+
+}
+If they say return{
+	Print books they have checked out currently
+		Print: Which book would you like to return
+		Search their StudentFile for book. If found, create book object for it,
+		If not found, allow them to research for a book.
+		(Student object name).return(book)
+
+}
+If they say check student info{
+	Print: What student would you like to see info on? Please enter their id code
+	Search Id file for their id code and make student object with credentials if one is not already made (this is known by seeing if their is a file created with their name.)
+	(Student object name).info()
+}
+Else{
+Program ends but says, “Credentials found but have not been approved to use the library management system yet.”
+}
+}
+
+Although not shown in pseudo code, plant to use arrays by integrating functions where whole series can be imputed to catalog at once (Same author, different names)
+Also if a function is made to check how long books have been checked out and stuff, this will be used here too. 
