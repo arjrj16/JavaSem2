@@ -1,5 +1,5 @@
 /*
-Pseudo Code:
+Pseudo Code: basics
 Creat Scanner - input
 constand dimensions -> 3, basically since there will always be 3 by 3 board
 main(){
